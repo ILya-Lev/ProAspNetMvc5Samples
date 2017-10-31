@@ -27,14 +27,14 @@ namespace MvcMusicStore.Controllers
 
 		public ApplicationSignInManager SignInManager
 		{
-			get => _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-			private set => _signInManager = value;
+			get { return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>(); }
+			private set { _signInManager = value; }
 		}
 
 		public ApplicationUserManager UserManager
 		{
-			get => _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-			private set => _userManager = value;
+			get { return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>(); }
+			private set { _userManager = value; }
 		}
 
 		//
