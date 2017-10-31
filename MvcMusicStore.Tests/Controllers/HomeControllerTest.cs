@@ -21,7 +21,7 @@ namespace MvcMusicStore.Tests.Controllers
 		{
 			var controller = new HomeController();
 			var result = controller.About() as ViewResult;
-			(result.ViewBag.Message as string).Should().Be("Your application description page.");
+			(result.ViewBag.Message as string).Should().Be("Per Aspera ad Astera.");
 		}
 
 		[TestMethod]

@@ -11,7 +11,7 @@ namespace MvcMusicStore.Controllers
 
 		public ActionResult About()
 		{
-			ViewBag.Message = "Your application description page.";
+			ViewBag.Message = "Per Aspera ad Astera.";
 
 			return View();
 		}
