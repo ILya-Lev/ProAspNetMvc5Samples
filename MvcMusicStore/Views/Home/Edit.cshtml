@@ -1,7 +1,24 @@
 ﻿
 @{
     ViewBag.Title = "Edit";
+    var items = new[] {"one", "two", "three"};
+    var message = "<script>alert('hacked!');</script>";
+    var userName = @"\x3cscript\x3e%20alert(\x27pwnd\x27)%20\x3c/script\x3e";
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
 
+<h3>Listing @items.Length items</h3>
+<ul>
+    @foreach(var item in items)
+    {
+        <li>The item name is @item</li>
+    }
+</ul>
+
+<span>so we have items_@items.Length and tweet @@Aaron</span>
+<hr/>
+@*<span>@Html.Raw(message)</span>*@
+<span>@message</span>
+<hr/>
+<span>@userName</span>
