@@ -46,9 +46,9 @@ namespace MvcMusicStore.Tests.Controllers
 			var ajaxHelper = new AjaxHelper(new ViewContext(), new ViewPage());
 			var jsEncoded = ajaxHelper.JavaScriptStringEncode(@"\x3cscript\x3e%20alert(\x27pwnd\x27)%20\x3c/script\x3e");
 
-			htmlEncoded.Should().Contain(@"<script>");
-			htmlDecoded.Should().Contain(@"<script>");
-			jsEncoded.Should().Contain(@"<script>");
+			htmlEncoded.Should().NotContain(@"<script>");
+			htmlDecoded.Should().NotContain(@"<script>");
+			jsEncoded.Should().NotContain(@"<script>");
 		}
 	}
 }
