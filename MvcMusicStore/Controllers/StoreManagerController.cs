@@ -1,5 +1,7 @@
 ﻿using MvcMusicStore.Models;
+using System;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -81,18 +83,39 @@ namespace MvcMusicStore.Controllers
 		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtistUrl")] Album album)
+		public ActionResult Edit()
 		{
-			if (ModelState.IsValid)
+			var album = new Album();
+			try
 			{
+				//UpdateModel(album);
+				UpdateModel(album, new[] { nameof(Album.AlbumArtistUrl), nameof(Album.AlbumId), nameof(Album.ArtistId), nameof(Album.GenreId), nameof(Album.Title), nameof(Album.Price) });
 				_context.Entry(album).State = EntityState.Modified;
 				_context.SaveChanges();
-				return RedirectToAction("Index");
+				return RedirectToAction(nameof(Index));
 			}
-			ViewBag.ArtistId = new SelectList(_context.Artists, "ArtistId", "Name", album.ArtistId);
-			ViewBag.GenreId = new SelectList(_context.Genres, "GenreId", "Name", album.GenreId);
-			return View(album);
+			catch (Exception exc)
+			{
+				Debug.WriteLine(exc);
+				ViewBag.ArtistId = new SelectList(_context.Artists, "ArtistId", "Name", album.ArtistId);
+				ViewBag.GenreId = new SelectList(_context.Genres, "GenreId", "Name", album.GenreId);
+				return View(album);
+			}
 		}
+		//[HttpPost]
+		//[ValidateAntiForgeryToken]
+		//public ActionResult Edit([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtistUrl")] Album album)
+		//{
+		//	if (ModelState.IsValid)
+		//	{
+		//		_context.Entry(album).State = EntityState.Modified;
+		//		_context.SaveChanges();
+		//		return RedirectToAction("Index");
+		//	}
+		//	ViewBag.ArtistId = new SelectList(_context.Artists, "ArtistId", "Name", album.ArtistId);
+		//	ViewBag.GenreId = new SelectList(_context.Genres, "GenreId", "Name", album.GenreId);
+		//	return View(album);
+		//}
 
 		// GET: StoreManager/Delete/5
 		public ActionResult Delete(int? id)

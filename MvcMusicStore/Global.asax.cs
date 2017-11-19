@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using MvcMusicStore.Models;
+using System.Data.Entity;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
@@ -8,7 +10,7 @@ namespace MvcMusicStore
 	{
 		protected void Application_Start()
 		{
-			//Database.SetInitializer(new MusicStoreDbInitializer());
+			Database.SetInitializer(new MusicStoreDbInitializer());
 
 			AreaRegistration.RegisterAllAreas();
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
