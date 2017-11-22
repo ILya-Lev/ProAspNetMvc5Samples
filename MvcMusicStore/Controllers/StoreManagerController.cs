@@ -143,6 +143,12 @@ namespace MvcMusicStore.Controllers
 			return RedirectToAction("Index");
 		}
 
+		public ActionResult PriceEdit()
+		{
+			ViewBag.Album = new Album { Price = 11.0m };
+			return View();
+		}
+
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing)
