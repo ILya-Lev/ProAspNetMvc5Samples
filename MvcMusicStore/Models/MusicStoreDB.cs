@@ -21,6 +21,6 @@ namespace MvcMusicStore.Models
 
 		public DbSet<Genre> Genres { get; set; }
 
-		public System.Data.Entity.DbSet<MvcMusicStore.Models.Order> Orders { get; set; }
+		public DbSet<Order> Orders { get; set; }
 	}
 }

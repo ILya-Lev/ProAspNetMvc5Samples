@@ -199,6 +199,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711270916521_OrderNamesLengthRestricted.cs" />
+    <Compile Include="Migrations\201711270916521_OrderNamesLengthRestricted.Designer.cs">
+      <DependentUpon>201711270916521_OrderNamesLengthRestricted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711270930402_OrderFirstNameMinLength.cs" />
+    <Compile Include="Migrations\201711270930402_OrderFirstNameMinLength.Designer.cs">
+      <DependentUpon>201711270930402_OrderFirstNameMinLength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711270946517_OrderEmailValidation.cs" />
+    <Compile Include="Migrations\201711270946517_OrderEmailValidation.Designer.cs">
+      <DependentUpon>201711270946517_OrderEmailValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711271112472_OrderUserNameFieldRename.cs" />
+    <Compile Include="Migrations\201711271112472_OrderUserNameFieldRename.Designer.cs">
+      <DependentUpon>201711271112472_OrderUserNameFieldRename.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
@@ -299,6 +316,20 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711270916521_OrderNamesLengthRestricted.resx">
+      <DependentUpon>201711270916521_OrderNamesLengthRestricted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711270930402_OrderFirstNameMinLength.resx">
+      <DependentUpon>201711270930402_OrderFirstNameMinLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711270946517_OrderEmailValidation.resx">
+      <DependentUpon>201711270946517_OrderEmailValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271112472_OrderUserNameFieldRename.resx">
+      <DependentUpon>201711271112472_OrderUserNameFieldRename.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
