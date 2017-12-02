@@ -13,17 +13,18 @@ namespace MvcMusicStore.Models
 		public DateTime OrderDate { get; set; }
 
 		[Remote("CheckUserName", "Orders")]
+		[ScaffoldColumn(false)]
 		public string UserName { get; set; }
 
 		[Required(ErrorMessage = "Your {0} is required")]
 		[StringLength(160, MinimumLength = 3, ErrorMessage = "Your {0} should be at least 3 and at most 160 symbols long")]
-		[DisplayName("First name")]
+		[Display(Name = "First name", Order = 11000)]
 		public string FirstName { get; set; }
 
 		[Required(ErrorMessage = "Your {0} is required")]
 		[StringLength(160)]
-		[DisplayName("Last name")]
-		[MaxWords(3, ErrorMessage = "There are too many words in {0}")]
+		[Display(Name = "Last name", Order = 12000)]
+		[MaxWords(3, ErrorMessage = "There are too many words in the {0}")]
 		public string LastName { get; set; }
 
 		public string Address { get; set; }
@@ -39,8 +40,12 @@ namespace MvcMusicStore.Models
 		public string Phone { get; set; }
 
 		[EmailAddress(ErrorMessage = "Entered value does not look like an email")]
+		[DataType(DataType.EmailAddress)]
 		public string Email { get; set; }
 
+		[ReadOnly(true)]
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
+		[DataType(DataType.Currency)]
 		public decimal Total { get; set; }
 	}
 }

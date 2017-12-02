@@ -30,8 +30,6 @@ namespace MvcMusicStore.Infrastructure
 
 		protected override ValidationResult IsValid(object value, ValidationContext validationContext)
 		{
-			//var propertyType = validationContext.ObjectType
-			//					.GetProperty(validationContext.MemberName)?.PropertyType;
 			var stringValue = value as string;
 			if (!string.IsNullOrWhiteSpace(stringValue))
 			{
@@ -39,7 +37,6 @@ namespace MvcMusicStore.Infrastructure
 										.Count(part => !string.IsNullOrWhiteSpace(part));
 
 				if (actualAmount > _amount)
-					//return new ValidationResult(string.Format(ErrorMessage, actualAmount, _amount));
 					return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
 			}
 			return ValidationResult.Success;
