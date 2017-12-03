@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MvcMusicStore.Models.Album>
+
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-striped table-hover">
+	<tr style="background-color: rgb(225, 190, 190);">
+		<th>
+			@Html.DisplayNameFor(model => model.Title)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Price)
+		</th>
+		<th></th>
+	</tr>
+
+@foreach (var item in Model) {
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.Title)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Price)
+		</td>
+		<td>
+			@Html.ActionLink("Buy", "Buy", new { albumId=item.AlbumId },
+								new {@class = "btn-primary btn-lg" })
+		</td>
+	</tr>
+}
+
+</table>

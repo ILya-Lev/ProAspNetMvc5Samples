@@ -1,0 +1,16 @@
+﻿@model MvcMusicStore.Models.Album
+
+@{
+	ViewBag.Title = "Buy";
+}
+
+<h2>Congratulations!</h2>
+
+<div>
+	<h3>You've just bought @Model.Title for @Html.DisplayTextFor(m => m.Price)</h3>
+	<br/>
+	<p>
+		@Html.ActionLink("Back to albums list", "Index", null, new {@class="btn-success btn-lg"})
+	</p>
+</div>
+
